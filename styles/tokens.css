@@ -1,0 +1,70 @@
+/* ============================================================
+   Design Tokens · Prateek Singh portfolio
+   The system in code. Reference these variables everywhere.
+   Do not redefine values inline.
+   ============================================================ */
+
+:root {
+
+  /* Color */
+  --paper:         #FAFAF6;
+  --paper-elev:    #FFFFFF;
+  --paper-warm:    #F3F0E8;
+  --ink:           #1A1A1A;
+  --ink-muted:     #595959;
+  --ink-faint:     #8A8A8A;
+  --accent:        #1F2A44;
+  --accent-hover:  #14182A;
+  --rule:          #E5E2D8;
+  --rule-strong:   #C5C2B8;
+
+  /* Semantic visualization palette — restrained, professional */
+  /* Use only as controlled cues: card accents, SVG strokes, metric markers */
+  --viz-blue:        #2F5D8C;   /* platform / governance          */
+  --viz-teal:        #2A8C82;   /* data / flow / reporting        */
+  --viz-amber:       #C58A2A;   /* decision / insight / review    */
+  --viz-plum:        #6F5A8C;   /* enablement / people            */
+  --viz-green:       #5F7F4F;   /* improvement / maturity         */
+  --viz-blue-soft:   #EEF3F8;
+  --viz-teal-soft:   #EEF5F4;
+  --viz-amber-soft:  #FAF4E8;
+  --viz-plum-soft:   #F3F0F8;
+  --viz-green-soft:  #EFF3EC;
+
+  /* Type families */
+  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans:  'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono:  'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Spacing (8px base) */
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  /* Radius */
+  --r-sm: 3px;
+  --r-md: 6px;
+  --r-lg: 10px;
+
+  /* Shadow — used sparingly */
+  --shadow-1: 0 1px 2px rgba(26, 26, 26, 0.04);
+  --shadow-2: 0 2px 8px rgba(26, 26, 26, 0.06);
+
+  /* Motion */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 120ms;
+  --t-base: 180ms;
+  --t-slow: 280ms;
+
+  /* Layout */
+  --max-prose: 720px;
+  --max-page:  1120px;
+
+}

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eight-Week C-Suite Product Sales Visibility — Prateek Singh</title>
+  <meta name="description" content="How a controlled-extract data model and Power BI semantic layer delivered executive product-sales reporting to C-suite and product leadership within approximately eight weeks, while enterprise data infrastructure was still in development.">
+
+  <meta property="og:title" content="From Mainframe Extracts to C-Suite Product Sales Visibility in Eight Weeks — Prateek Singh">
+  <meta property="og:description" content="Executive Reporting case study. Pragmatic architecture decision, Power BI semantic model across three product-sales dimensions, and four review cadences from a single model.">
+  <meta property="og:type" content="article">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/layout.css">
+  <link rel="stylesheet" href="../../styles/components.css">
+  <link rel="stylesheet" href="../../styles/case-study.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../../" class="wordmark">Prateek Singh</a>
+      <ul class="nav-links">
+        <li><a href="../">Work</a></li>
+        <li><a href="../../about/">About</a></li>
+        <li><a href="../../#how-i-lead">How I Lead</a></li>
+        <li><a href="../../#contact">Contact</a></li>
+      </ul>
+      <button type="button" class="nav-toggle" aria-label="Open navigation menu">Menu</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+
+      <!-- ============================================================
+           Back link
+           ============================================================ -->
+      <div class="cs-back-wrap">
+        <div class="container">
+          <a href="../" class="cs-back">All work</a>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           Hero band
+           ============================================================ -->
+      <header class="cs-hero">
+        <div class="container">
+          <div class="cs-meta">
+            <div class="category-badge">
+              <span class="dot"></span>Executive Reporting · Jackson National Life
+            </div>
+          </div>
+
+          <h1 class="cs-title">From Mainframe Extracts to C-Suite Product Sales Visibility in Eight Weeks</h1>
+
+          <div class="cs-details">
+            <span class="detail">Senior Data Visualization &amp; Analytics Engineer</span>
+            <span class="detail">Sep 2022 – Present</span>
+          </div>
+
+          <ul class="cs-tags" aria-label="Case study tags">
+            <li>Power BI</li>
+            <li>Executive Reporting</li>
+            <li>Pragmatic Architecture</li>
+            <li>Stakeholder Management</li>
+            <li>Iterative Delivery</li>
+          </ul>
+
+          <!-- Confidentiality callout -->
+          <div class="cs-confidentiality" role="note">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M8 4.5V8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="8" cy="11" r="0.65" fill="currentColor"/>
+            </svg>
+            <span>Specific business names, dashboards, and figures are anonymized for confidentiality. Full detail available under NDA.</span>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- ============================================================
+           TL;DR strip
+           ============================================================ -->
+      <section class="cs-tldr" aria-label="Case study at a glance">
+        <div class="container">
+          <div class="cs-tldr-grid">
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Owned</span>
+              <p class="cs-tldr-value">End-to-end delivery of the executive product-sales reporting program</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Built</span>
+              <p class="cs-tldr-value">Controlled-extract data model + Power BI semantic layer + executive workbooks across three product-sales dimensions</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Resulted in</span>
+              <p class="cs-tldr-value">C-suite and product leadership visibility into product-sales movement within approximately eight weeks</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Lasted</span>
+              <p class="cs-tldr-value">Weekly, monthly, quarterly, and yearly review cadences — a standing reporting program</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           Prose body
+           ============================================================ -->
+      <div class="cs-prose-wrap">
+        <div class="container">
+          <div class="cs-prose">
+
+
+            <!-- Context ------------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-context">
+              <span class="cs-section-label">Context</span>
+              <h2 class="cs-section-heading" id="cs-context">Context</h2>
+
+              <p>A Fortune 500 life insurance carrier distributing products across multiple channels, categories, and individual products. Senior product leadership and C-suite needed visibility into revenue movement — what was selling, through which distribution channels and product categories, and where sales were contracting. The enterprise data layer was in active development and production-ready data through it was not available within the required timeline. A reporting cadence had already been set with stakeholders.</p>
+            </section>
+
+
+            <!-- The Problem --------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-problem">
+              <span class="cs-section-label">The Problem</span>
+              <h2 class="cs-section-heading" id="cs-problem">The Problem</h2>
+
+              <p>The situation had a deadline on one side and an infrastructure gap on the other:</p>
+
+              <ul class="cs-problem-list">
+                <li>Product and C-suite leadership had no reporting on product-sales movement in any accessible form.</li>
+                <li>The enterprise Databricks data layer was under construction — production-ready data through it was months away.</li>
+                <li>Source data lived in mainframe-based policy administration systems, Oracle source data, and internal financial extracts — reliable, but not yet flowing through the enterprise layer.</li>
+                <li>Building against the target architecture meant missing the stakeholder window. Waiting for the enterprise layer meant shipping nothing.</li>
+              </ul>
+
+              <p class="cs-hinge">The real question was an architecture question, not a reporting question: what to build in the interim, and how to build it cleanly enough that migrating to the enterprise layer wouldn't require starting over.</p>
+            </section>
+
+
+            <!-- My Role ------------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-role">
+              <span class="cs-section-label">My Role</span>
+              <h2 class="cs-section-heading" id="cs-role">My Role</h2>
+
+              <p>I owned the end-to-end delivery of the executive reporting program: the architecture decision, the controlled-extract data model, the Power BI semantic layer, the executive workbook design, and the stakeholder engagement through C-suite demos. BI delivery team members supported specific data-engineering tasks during the build.</p>
+            </section>
+
+
+            <!-- Approach ------------------------------------------ -->
+            <section class="cs-section" aria-labelledby="cs-approach">
+              <span class="cs-section-label">Approach</span>
+              <h2 class="cs-section-heading" id="cs-approach">Approach</h2>
+
+              <p class="cs-approach-intro">Four decisions shaped the program. The design principle behind all of them: <em>build the interim well enough that it doesn't need to be apologized for when executives first see it.</em></p>
+
+              <ul class="cs-decisions">
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">01</span>
+                  <h3 class="cs-decision-title">Decide on interim vs. target architecture honestly.</h3>
+                  <p class="cs-decision-body">The controlled-extract path was the right choice for the timeline. Ship against the sources we could access, document the decision, and design cleanly enough that migration to the enterprise layer wouldn't require a rewrite. The decision was treated as a deliberate architectural choice, not a workaround.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">02</span>
+                  <h3 class="cs-decision-title">Model for the reporting question, not the source structure.</h3>
+                  <p class="cs-decision-body">The semantic layer was organized around how executives and product leadership think about product sales — by distribution channel, by product category, by individual product — not around the shape of the source systems. This made the workbooks stable even as the underlying extract logic evolved.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">03</span>
+                  <h3 class="cs-decision-title">Build review cadence in from the start.</h3>
+                  <p class="cs-decision-body">Weekly, monthly, quarterly, and yearly breakdowns were built into the temporal structure of the model from the beginning — not added after delivery. One model, four cadences, without duplication. Executives can review the same report on any cadence without requesting a custom build.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">04</span>
+                  <h3 class="cs-decision-title">Design for executive attention.</h3>
+                  <p class="cs-decision-body">Product-sales dashboards for senior leaders have a narrow window. Layout, terminology, and the drilldown hierarchy were designed for executives who scan, not analysts who explore. The demo process was designed the same way: lead with the signal, then answer the question that follows it.</p>
+                </li>
+
+              </ul>
+            </section>
+
+
+            <!-- What I Built -------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-built">
+              <span class="cs-section-label">What I Built</span>
+              <h2 class="cs-section-heading" id="cs-built">What I Built</h2>
+
+              <ul class="cs-built-list">
+                <li>A controlled-extract data model pulling from mainframe-based policy administration systems, Oracle source data, and internal financial extracts.</li>
+                <li>A Power BI semantic model organized around three product-sales dimensions: distribution channel, product category, and individual product.</li>
+                <li>Executive workbooks surfacing product-sales movement, inflow vs. outflow patterns, and product performance across those three dimensions.</li>
+                <li>A temporal structure supporting weekly, monthly, quarterly, and yearly review cadences from a single model — no duplication across cadences.</li>
+                <li>A standing executive demo and review process: regular cadence with senior product leadership and C-suite stakeholders.</li>
+                <li>A documented interim architecture with an explicit migration path to the enterprise Databricks target state.</li>
+              </ul>
+            </section>
+
+
+            <!-- Visual Artifact (placeholder) -------------------- -->
+            <!-- Future Phase: Interim vs. Target Architecture diagram -->
+            <figure class="cs-artifact" aria-label="Visual artifact placeholder — Interim vs. Target Architecture">
+              <div class="cs-artifact-placeholder">
+
+                <!-- Conceptual preview: two-state architecture -->
+                <!-- State 1 (delivered): sources → controlled extracts → semantic model → workbooks -->
+                <!-- Migration arrow → State 2 (target): sources → Databricks layers → semantic model → workbooks -->
+                <svg viewBox="0 0 480 165" xmlns="http://www.w3.org/2000/svg"
+                     role="img" aria-labelledby="ph2-title ph2-desc"
+                     style="width:100%;max-width:480px;height:auto;display:block;">
+
+                  <title id="ph2-title">Placeholder — Interim vs. Target Architecture diagram</title>
+                  <desc id="ph2-desc">Abstract preview of a two-state architecture diagram. State 1 shows source systems flowing through controlled extracts to a Power BI semantic model and executive workbooks. A dashed migration arrow indicates progression to State 2, where the same sources flow through enterprise Databricks layers before reaching the semantic model.</desc>
+
+                  <style>
+                    .ph2-hdr  { fill: var(--paper-warm, #F3F0E8); }
+                    .ph2-rule { stroke: var(--rule, #E5E2D8); stroke-width: 1; fill: none; }
+                    .ph2-vln  { stroke: var(--rule, #E5E2D8); stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+                    /* Interim state: blue — current platform */
+                    .ph2-box  { fill: var(--viz-blue-soft, #EEF3F8); stroke: var(--viz-blue, #2F5D8C); stroke-width: 1.5; }
+                    /* Production/target: teal — improved data layer */
+                    .ph2-prod { fill: var(--viz-teal-soft, #EEF5F4); stroke: var(--viz-teal, #2A8C82); stroke-width: 1.5; }
+                    /* Target db layers: green — gold/clean data layer */
+                    .ph2-db   { fill: var(--viz-green-soft, #EFF3EC); stroke: var(--viz-green, #5F7F4F); stroke-width: 1.5; }
+                    /* Flow arrows: accent */
+                    .ph2-arr  { stroke: var(--accent, #1F2A44); stroke-width: 1.5; fill: none; }
+                    /* Migration arrow: amber — in-flight transition */
+                    .ph2-mig  { stroke: var(--viz-amber, #C58A2A); stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
+                    .ph2-ahd  { fill: var(--accent, #1F2A44); stroke: none; }
+                    .ph2-mahd { fill: var(--viz-amber, #C58A2A); stroke: none; }
+                    .ph2-div  { stroke: var(--rule-strong, #C5C2B8); stroke-width: 0.8; fill: none; }
+                    .ph2-col  { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; fill: var(--ink, #1A1A1A); text-anchor: middle; dominant-baseline: central; }
+                    .ph2-lbl  { font-family: 'IBM Plex Sans', sans-serif; font-size: 9px; fill: var(--ink-faint, #8A8A8A); text-anchor: middle; dominant-baseline: central; }
+                  </style>
+
+                  <!-- Header band -->
+                  <rect x="0" y="0" width="480" height="24" class="ph2-hdr"/>
+                  <line x1="0" y1="24" x2="480" y2="24" class="ph2-rule"/>
+                  <text x="108" y="13" class="ph2-col">STATE 1 · DELIVERED</text>
+                  <text x="365" y="13" class="ph2-col">STATE 2 · TARGET</text>
+
+                  <!-- Vertical separator between states -->
+                  <line x1="238" y1="24" x2="238" y2="140" class="ph2-vln"/>
+
+                  <!-- ── STATE 1 ────────────────────────────────── -->
+                  <!-- Source boxes (3 stacked) -->
+                  <rect x="14" y="40" width="52" height="16" rx="2" class="ph2-box"/>
+                  <rect x="14" y="64" width="52" height="16" rx="2" class="ph2-box"/>
+                  <rect x="14" y="88" width="52" height="16" rx="2" class="ph2-box"/>
+
+                  <!-- Converging lines to extract box (center y=72) -->
+                  <line x1="66" y1="48" x2="86" y2="72" class="ph2-arr"/>
+                  <line x1="66" y1="72" x2="86" y2="72" class="ph2-arr"/>
+                  <line x1="66" y1="96" x2="86" y2="72" class="ph2-arr"/>
+
+                  <!-- Controlled extracts box -->
+                  <rect x="86" y="64" width="54" height="16" rx="2" class="ph2-box"/>
+
+                  <!-- Arrow → Semantic model -->
+                  <line x1="140" y1="72" x2="152" y2="72" class="ph2-arr"/>
+                  <polygon points="148,69 152,72 148,75" class="ph2-ahd"/>
+
+                  <!-- Semantic model box -->
+                  <rect x="152" y="64" width="54" height="16" rx="2" class="ph2-box"/>
+
+                  <!-- Arrow → Workbooks -->
+                  <line x1="206" y1="72" x2="215" y2="72" class="ph2-arr"/>
+                  <polygon points="211,69 215,72 211,75" class="ph2-ahd"/>
+
+                  <!-- Workbooks (production-style fill) -->
+                  <rect x="215" y="64" width="20" height="16" rx="2" class="ph2-prod"/>
+
+                  <!-- State 1 sub-labels -->
+                  <text x="40"  y="122" class="ph2-lbl">Sources</text>
+                  <text x="113" y="122" class="ph2-lbl">Controlled Extracts</text>
+                  <text x="179" y="122" class="ph2-lbl">Semantic Model</text>
+
+                  <!-- ── Migration arrow ──────────────────────────── -->
+                  <line x1="248" y1="72" x2="268" y2="72" class="ph2-mig"/>
+                  <polygon points="264,69 269,72 264,75" class="ph2-mahd"/>
+
+                  <!-- ── STATE 2 ────────────────────────────────── -->
+                  <!-- Source boxes (3 stacked) -->
+                  <rect x="280" y="40" width="44" height="16" rx="2" class="ph2-box"/>
+                  <rect x="280" y="64" width="44" height="16" rx="2" class="ph2-box"/>
+                  <rect x="280" y="88" width="44" height="16" rx="2" class="ph2-box"/>
+
+                  <!-- Converging lines to Databricks (center y=72) -->
+                  <line x1="324" y1="48" x2="340" y2="58" class="ph2-arr"/>
+                  <line x1="324" y1="72" x2="340" y2="72" class="ph2-arr"/>
+                  <line x1="324" y1="96" x2="340" y2="86" class="ph2-arr"/>
+
+                  <!-- Databricks layers box (taller, with internal layer dividers) -->
+                  <rect x="340" y="53" width="48" height="38" rx="2" class="ph2-db"/>
+                  <line x1="341" y1="65" x2="387" y2="65" class="ph2-div"/>
+                  <line x1="341" y1="77" x2="387" y2="77" class="ph2-div"/>
+
+                  <!-- Arrow → Semantic model -->
+                  <line x1="388" y1="72" x2="400" y2="72" class="ph2-arr"/>
+                  <polygon points="396,69 400,72 396,75" class="ph2-ahd"/>
+
+                  <!-- Semantic model box -->
+                  <rect x="400" y="64" width="44" height="16" rx="2" class="ph2-box"/>
+
+                  <!-- Arrow → Workbooks -->
+                  <line x1="444" y1="72" x2="454" y2="72" class="ph2-arr"/>
+                  <polygon points="450,69 454,72 450,75" class="ph2-ahd"/>
+
+                  <!-- Workbooks -->
+                  <rect x="454" y="64" width="18" height="16" rx="2" class="ph2-prod"/>
+
+                  <!-- State 2 sub-labels -->
+                  <text x="302" y="122" class="ph2-lbl">Sources</text>
+                  <text x="364" y="122" class="ph2-lbl">Databricks Layers</text>
+                  <text x="422" y="122" class="ph2-lbl">Semantic Model</text>
+
+                </svg>
+
+                <p class="artifact-phase">Visual Artifact · Forthcoming</p>
+                <p class="artifact-label">Interim vs. Target Architecture</p>
+
+              </div>
+              <figcaption>Fig. 1 — Two-state architecture: the controlled-extract interim (State 1, delivered within the deadline) and the target Databricks-layer path (State 2, designed from the start as the migration destination).</figcaption>
+            </figure>
+
+
+            <!-- Outcome ------------------------------------------ -->
+            <section class="cs-section" aria-labelledby="cs-outcome">
+              <span class="cs-section-label">Outcome</span>
+              <h2 class="cs-section-heading" id="cs-outcome">Outcome</h2>
+
+              <p>The program delivered C-suite and product leadership visibility into product-sales movement within approximately eight weeks. The executive workbooks became standing deliverables for senior leadership, with review cadences that have continued running since delivery without significant rework.</p>
+
+              <ul class="cs-outcome-list">
+                <li>Reporting across three product-sales dimensions: distribution channel, product category, and individual product.</li>
+                <li>Four review cadences — weekly, monthly, quarterly, and yearly — from one Power BI semantic model.</li>
+                <li>A standing executive reporting program in use since delivery.</li>
+                <li>A documented interim architecture with a clear migration path to the enterprise Databricks target state.</li>
+              </ul>
+
+              <p class="cs-outcome-note">Specific revenue figures and adoption metrics are not published here.</p>
+            </section>
+
+
+            <!-- Reflection --------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-reflection">
+              <span class="cs-section-label">Reflection</span>
+              <h2 class="cs-section-heading" id="cs-reflection">Reflection</h2>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Document the migration path on day one.</h3>
+                <p>The interim architecture worked — but the original architectural decision hadn't been written down at delivery. Later conversations about transitioning to the enterprise layer were harder than they needed to be. A brief architecture decision record written at the time of delivery would have shortened every subsequent conversation about why we built it the way we did.</p>
+              </div>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Build outflow by reason category from the start.</h3>
+                <p>The first version of inflow vs. outflow reported total outflow without breaking it into reason categories. Executives almost immediately asked for the breakdown. The model could support it — it just hadn't been surfaced. Build to the likely next question, not only the first one.</p>
+              </div>
+
+              <p class="cs-lesson">The broader lesson: the most useful thing a BI leader can do when enterprise architecture isn't ready is make a clean, documented decision about the interim — and build it well enough that it doesn't need to be explained defensively in the first meeting where executives actually see it.</p>
+            </section>
+
+
+          </div><!-- /.cs-prose -->
+        </div><!-- /.container -->
+      </div><!-- /.cs-prose-wrap -->
+
+    </article>
+  </main>
+
+
+  <!-- ============================================================
+       Case navigation — previous + next
+       ============================================================ -->
+  <nav class="cs-next" aria-label="Case study navigation">
+    <div class="container">
+      <div class="cs-next-inner">
+        <a href="../tableau-governance/" class="back-to-work">← Previous case</a>
+        <div>
+          <span class="cs-next-label">Next case study</span>
+          <a href="../executive-budget/" class="cs-next-link">
+            Building Executive Budget &amp; Expense Reporting for Operations Leadership
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <span class="footer-identity">Prateek Singh · Lansing, MI</span>
+      <ul class="footer-links">
+        <li><a href="mailto:prateek.singh22@outlook.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/prateeksingh22" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/prateeks-viz" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="../../cv/Prateek_Singh_Resume.pdf">CV</a></li>
+      </ul>
+      <span class="footer-year">© 2026</span>
+    </div>
+  </footer>
+
+  <script src="../../js/nav.js" defer></script>
+</body>
+</html>

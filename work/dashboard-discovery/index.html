@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dashboard No One Could Find: Reporting Discoverability at Red Hat — Prateek Singh</title>
+  <meta name="description" content="How Tableau Server metadata and Redshift usage logs became the substrate for a landing dashboard that gave Red Hat's reporting estate a single searchable entry point — substantially reducing dependency on support teams to locate reports.">
+
+  <meta property="og:title" content="The Dashboard No One Could Find: Reporting Discoverability at Red Hat — Prateek Singh">
+  <meta property="og:description" content="Platform &amp; UX case study. Tableau Server metadata + Redshift usage logs → metadata model → searchable landing dashboard with keyword search, structured browse, and most-used navigation.">
+  <meta property="og:type" content="article">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/layout.css">
+  <link rel="stylesheet" href="../../styles/components.css">
+  <link rel="stylesheet" href="../../styles/case-study.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../../" class="wordmark">Prateek Singh</a>
+      <ul class="nav-links">
+        <li><a href="../">Work</a></li>
+        <li><a href="../../about/">About</a></li>
+        <li><a href="../../#how-i-lead">How I Lead</a></li>
+        <li><a href="../../#contact">Contact</a></li>
+      </ul>
+      <button type="button" class="nav-toggle" aria-label="Open navigation menu">Menu</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+
+      <!-- ============================================================
+           Back link
+           ============================================================ -->
+      <div class="cs-back-wrap">
+        <div class="container">
+          <a href="../" class="cs-back">All work</a>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           Hero band
+           ============================================================ -->
+      <header class="cs-hero">
+        <div class="container">
+          <div class="cs-meta">
+            <div class="category-badge">
+              <span class="dot"></span>Platform &amp; UX · Red Hat
+            </div>
+          </div>
+
+          <h1 class="cs-title">The Dashboard No One Could Find: Reporting Discoverability at Red Hat</h1>
+
+          <div class="cs-details">
+            <span class="detail">Business Analyst II</span>
+            <span class="detail">Aug 2021 – Apr 2022</span>
+          </div>
+
+          <ul class="cs-tags" aria-label="Case study tags">
+            <li>Tableau</li>
+            <li>Tableau Server</li>
+            <li>Metadata</li>
+            <li>Reporting Discoverability</li>
+            <li>Platform UX</li>
+          </ul>
+
+          <div class="cs-confidentiality" role="note">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M8 4.5V8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="8" cy="11" r="0.65" fill="currentColor"/>
+            </svg>
+            <span>Specific dashboard names, team names, and figures are anonymized for confidentiality. Full detail available under NDA.</span>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- ============================================================
+           TL;DR strip
+           ============================================================ -->
+      <section class="cs-tldr" aria-label="Case study at a glance">
+        <div class="container">
+          <div class="cs-tldr-grid">
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Owned</span>
+              <p class="cs-tldr-value">Design and build of the reporting discovery meta-product end-to-end</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Built</span>
+              <p class="cs-tldr-value">Tableau Server metadata + Redshift usage logs → metadata model → searchable landing dashboard with three discovery patterns</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Resulted in</span>
+              <p class="cs-tldr-value">A single browsable entry point across the entire Tableau estate — substantially reducing dependency on support teams to locate reports</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Lasted</span>
+              <p class="cs-tldr-value">Productionized and transitioned before role transition in April 2022</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           Prose body
+           ============================================================ -->
+      <div class="cs-prose-wrap">
+        <div class="container">
+          <div class="cs-prose">
+
+
+            <!-- Context -->
+            <section class="cs-section" aria-labelledby="cs-context">
+              <span class="cs-section-label">Context</span>
+              <h2 class="cs-section-heading" id="cs-context">Context</h2>
+
+              <p>Red Hat's North American sales and finance reporting ran on a Redshift-backed Tableau environment serving leadership across product performance, revenue trends, and expenditure. The estate had grown over time — hundreds of dashboards across departments — to the point where finding the right report required already knowing it existed. Leadership pinging analytics teams for "where is the report on X" had become routine overhead absorbed by whoever happened to know the answer that day.</p>
+            </section>
+
+
+            <!-- The Problem -->
+            <section class="cs-section" aria-labelledby="cs-problem">
+              <span class="cs-section-label">The Problem</span>
+              <h2 class="cs-section-heading" id="cs-problem">The Problem</h2>
+
+              <p>The estate had outgrown informal discovery:</p>
+
+              <ul class="cs-problem-list">
+                <li>Hundreds of dashboards across departments — no browsable or searchable surface existed anywhere in the environment.</li>
+                <li>Leadership depended on Slack requests and word of mouth to locate specific reports; the analytics team absorbed that overhead continuously.</li>
+                <li>New stakeholders had no entry point to the reporting environment at all — they didn't know what existed, let alone where to look.</li>
+                <li>Native Tableau Server navigation wasn't structured for how business users think about data — it reflected how content was organized, not how people looked for it.</li>
+                <li>There was no way to surface which dashboards were actively used, recently updated, or most relevant to a given question.</li>
+              </ul>
+
+              <p class="cs-hinge">Treating this as a support problem would have meant handling individual location requests indefinitely. The right answer was to treat it as a product problem and solve for the discovery layer once.</p>
+            </section>
+
+
+            <!-- My Role -->
+            <section class="cs-section" aria-labelledby="cs-role">
+              <span class="cs-section-label">My Role</span>
+              <h2 class="cs-section-heading" id="cs-role">My Role</h2>
+
+              <p>I designed and built the discovery product: the Redshift model drawing from Tableau Server metadata and usage logs, the metadata layer, and the Tableau landing dashboard that surfaced the estate through search, browse, and usage-based navigation. The product was productionized and transitioned before my role ended in April 2022.</p>
+            </section>
+
+
+            <!-- Approach -->
+            <section class="cs-section" aria-labelledby="cs-approach">
+              <span class="cs-section-label">Approach</span>
+              <h2 class="cs-section-heading" id="cs-approach">Approach</h2>
+
+              <p class="cs-approach-intro">Four decisions shaped the product. The core principle: <em>use what the platform already knows about itself before building anything new.</em></p>
+
+              <ul class="cs-decisions">
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">01</span>
+                  <h3 class="cs-decision-title">Use the platform's own data as the substrate.</h3>
+                  <p class="cs-decision-body">Tableau Server logs its own usage: which workbooks are viewed, how often, by whom, when last updated. That data was accessible in Redshift. Using what the platform already knew about itself — rather than building a separate metadata layer or requiring manual curation from dashboard owners — was what made the project feasible within the time available.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">02</span>
+                  <h3 class="cs-decision-title">Treat it as a product, not a report.</h3>
+                  <p class="cs-decision-body">A landing dashboard that helps users find other reports isn't a report — it's a meta-product. The design problem was a discovery problem: how do business stakeholders search when they know roughly what they want, browse when they don't, and identify trustworthy content when they're uncertain either way. That framing drove every layout and interaction decision.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">03</span>
+                  <h3 class="cs-decision-title">Design for three discovery patterns, not one.</h3>
+                  <p class="cs-decision-body">Examining how stakeholders actually found reports revealed three distinct behaviors: keyword search (a specific term, product name, or business question), structured browse (exploring by domain or function), and usage-based navigation (trusting what others most frequently open as a starting signal). The landing dashboard addressed all three rather than optimizing for one and leaving the other two unsolved.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">04</span>
+                  <h3 class="cs-decision-title">Govern the metadata before handing off.</h3>
+                  <p class="cs-decision-body">Metadata has edge cases: workbooks without descriptions, views with low usage counts but high business criticality, permission differences that affect what surfaces for whom. Cleaning and governing the metadata layer — not just building the model — was what made the product reliable for stakeholders who weren't already familiar with the estate.</p>
+                </li>
+
+              </ul>
+            </section>
+
+
+            <!-- What I Built -->
+            <section class="cs-section" aria-labelledby="cs-built">
+              <span class="cs-section-label">What I Built</span>
+              <h2 class="cs-section-heading" id="cs-built">What I Built</h2>
+
+              <ul class="cs-built-list">
+                <li>A Redshift model pulling and structuring Tableau Server metadata: workbook names, view descriptions, usage logs, update frequency, and access patterns.</li>
+                <li>A metadata layer treating usage frequency, recency, and stakeholder reach as first-class dimensions — the basis for surfacing relevant content rather than just listing it.</li>
+                <li>A Tableau landing dashboard giving the estate a single searchable entry point: keyword search, structured browse by domain, and a most-used and recently-active surface.</li>
+                <li>Metadata governance — description coverage, categorization, and quality — ensuring what the product surfaced was accurate and useful rather than just technically present.</li>
+                <li>A productionized, transitioned product handed off before role transition in April 2022.</li>
+              </ul>
+            </section>
+
+
+            <!-- Visual Artifact (placeholder) -->
+            <figure class="cs-artifact" aria-label="Visual artifact placeholder — Discovery Architecture">
+              <div class="cs-artifact-placeholder">
+
+                <svg viewBox="0 0 480 170" xmlns="http://www.w3.org/2000/svg"
+                     role="img" aria-labelledby="ph4-title ph4-desc"
+                     style="width:100%;max-width:480px;height:auto;display:block;">
+
+                  <title id="ph4-title">Placeholder — Discovery Architecture diagram</title>
+                  <desc id="ph4-desc">Abstract preview showing data flow from Tableau Server metadata and Redshift usage logs through a metadata model into a central landing dashboard, which then surfaces content through three discovery patterns: keyword search, structured browse, and most-used navigation.</desc>
+
+                  <style>
+                    .ph4-hdr  { fill: var(--paper-warm, #F3F0E8); }
+                    .ph4-rule { stroke: var(--rule, #E5E2D8); stroke-width: 1; fill: none; }
+                    .ph4-vln  { stroke: var(--rule, #E5E2D8); stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+                    /* Central landing hub: blue — platform governance */
+                    .ph4-box  { fill: var(--paper-elev, #FFFFFF); stroke: var(--accent, #1F2A44); stroke-width: 1.5; }
+                    .ph4-hub  { fill: var(--viz-blue-soft, #EEF3F8); stroke: var(--viz-blue, #2F5D8C); stroke-width: 2; }
+                    /* Discovery spoke circles: teal — data/flow discovery */
+                    .ph4-cir  { fill: var(--viz-teal-soft, #EEF5F4); stroke: var(--viz-teal, #2A8C82); stroke-width: 1.5; }
+                    /* Spoke arrows: teal */
+                    .ph4-arr  { stroke: var(--viz-teal, #2A8C82); stroke-width: 1.5; fill: none; }
+                    .ph4-ahd  { fill: var(--viz-teal, #2A8C82); stroke: none; }
+                    .ph4-col  { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; fill: var(--ink, #1A1A1A); text-anchor: middle; dominant-baseline: central; }
+                    .ph4-lbl  { font-family: 'IBM Plex Sans', sans-serif; font-size: 9px; fill: var(--ink-faint, #8A8A8A); text-anchor: middle; dominant-baseline: central; }
+                  </style>
+
+                  <rect x="0" y="0" width="480" height="24" class="ph4-hdr"/>
+                  <line x1="0" y1="24" x2="480" y2="24" class="ph4-rule"/>
+                  <text x="240" y="13" class="ph4-col">DISCOVERY ARCHITECTURE</text>
+
+                  <!-- Vertical separator: pipeline left / discovery right -->
+                  <line x1="228" y1="30" x2="228" y2="148" class="ph4-vln"/>
+
+                  <!-- DATA PIPELINE -->
+                  <rect x="12" y="74" width="62" height="18" rx="2" class="ph4-box"/>
+                  <line x1="74" y1="83" x2="86" y2="83" class="ph4-arr"/>
+                  <polygon points="82,80 86,83 82,86" class="ph4-ahd"/>
+                  <rect x="86" y="74" width="50" height="18" rx="2" class="ph4-box"/>
+                  <line x1="136" y1="83" x2="148" y2="83" class="ph4-arr"/>
+                  <polygon points="144,80 148,83 144,86" class="ph4-ahd"/>
+                  <rect x="148" y="74" width="62" height="18" rx="2" class="ph4-box"/>
+                  <line x1="210" y1="83" x2="238" y2="83" class="ph4-arr"/>
+                  <polygon points="234,80 238,83 234,86" class="ph4-ahd"/>
+
+                  <text x="43"  y="104" class="ph4-lbl">Server Metadata</text>
+                  <text x="111" y="104" class="ph4-lbl">Redshift</text>
+                  <text x="179" y="104" class="ph4-lbl">Metadata Model</text>
+
+                  <!-- LANDING DASHBOARD HUB -->
+                  <rect x="240" y="68" width="76" height="30" rx="3" class="ph4-hub"/>
+                  <text x="278" y="83" class="ph4-lbl" style="font-size:8.5px;fill:var(--ink,#1A1A1A)">Landing Dashboard</text>
+
+                  <!-- THREE DISCOVERY PATTERNS -->
+                  <line x1="316" y1="76" x2="360" y2="50" class="ph4-arr"/>
+                  <polygon points="355,47 361,51 356,55" class="ph4-ahd"/>
+                  <circle cx="382" cy="44" r="18" class="ph4-cir"/>
+
+                  <line x1="316" y1="83" x2="380" y2="83" class="ph4-arr"/>
+                  <polygon points="376,80 380,83 376,86" class="ph4-ahd"/>
+                  <circle cx="402" cy="83" r="18" class="ph4-cir"/>
+
+                  <line x1="316" y1="90" x2="360" y2="120" class="ph4-arr"/>
+                  <polygon points="355,117 361,121 355,125" class="ph4-ahd"/>
+                  <circle cx="382" cy="128" r="18" class="ph4-cir"/>
+
+                  <text x="382" y="44"  class="ph4-lbl" style="font-size:8px">Search</text>
+                  <text x="402" y="83"  class="ph4-lbl" style="font-size:8px">Browse</text>
+                  <text x="382" y="128" class="ph4-lbl" style="font-size:8px">Most Used</text>
+
+                </svg>
+
+                <p class="artifact-phase">Visual Artifact · Forthcoming</p>
+                <p class="artifact-label">Discovery Architecture</p>
+
+              </div>
+              <figcaption>Fig. 1 — Discovery Architecture: Tableau Server metadata and usage logs flow through Redshift into a metadata model, feeding a landing dashboard that surfaces the full reporting estate through three discovery patterns — keyword search, structured browse, and most-used navigation.</figcaption>
+            </figure>
+
+
+            <!-- Outcome -->
+            <section class="cs-section" aria-labelledby="cs-outcome">
+              <span class="cs-section-label">Outcome</span>
+              <h2 class="cs-section-heading" id="cs-outcome">Outcome</h2>
+
+              <p>Leadership gained a single entry point across the entire Tableau Server estate. Stakeholders could search by keyword, browse by domain, or navigate to the most-used content without Slack requests or support team involvement. The product was in production and transitioned before my role ended.</p>
+
+              <ul class="cs-outcome-list">
+                <li>A metadata-driven landing dashboard covering the full Tableau Server estate — hundreds of workbooks made browsable from one surface.</li>
+                <li>Three discovery patterns in one product: keyword search, structured browse, and most-used/recently-active navigation.</li>
+                <li>Dependency on support teams to locate reports substantially reduced.</li>
+                <li>A productionized meta-product transitioned before role transition in April 2022.</li>
+              </ul>
+
+              <p class="cs-outcome-note">Specific usage metrics and adoption figures are not published here.</p>
+            </section>
+
+
+            <!-- Reflection -->
+            <section class="cs-section" aria-labelledby="cs-reflection">
+              <span class="cs-section-label">Reflection</span>
+              <h2 class="cs-section-heading" id="cs-reflection">Reflection</h2>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Govern the metadata before building the product.</h3>
+                <p>I addressed metadata quality after most of the build was complete. Starting with a metadata governance pass — ensuring descriptions existed, tags were consistent, and usage patterns were meaningful — would have produced a cleaner first version and avoided rework on the model after the product was already being used. Metadata quality is a prerequisite for discoverability, not an afterthought.</p>
+              </div>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Build stakeholder contribution into the product from the start.</h3>
+                <p>The landing dashboard surfaced what the platform already knew about itself. The next evolution would have been letting workbook owners contribute: descriptions, audience context, and tags through a governed intake process, making the product self-improving over time. I didn't have the tenure to build it; it's what I'd scope from day one next time.</p>
+              </div>
+
+              <p class="cs-lesson">The highest-leverage BI work isn't always another dashboard — sometimes it's the product that makes the existing dashboards findable. An estate of well-built, undiscoverable reports is still effectively invisible to the people who need them.</p>
+            </section>
+
+
+          </div><!-- /.cs-prose -->
+        </div><!-- /.container -->
+      </div><!-- /.cs-prose-wrap -->
+
+    </article>
+  </main>
+
+
+  <!-- ============================================================
+       Case navigation
+       ============================================================ -->
+  <nav class="cs-next" aria-label="Case study navigation">
+    <div class="container">
+      <div class="cs-next-inner">
+        <a href="../executive-budget/" class="back-to-work">← Previous case</a>
+        <div>
+          <span class="cs-next-label">Next case study</span>
+          <a href="../bi-cop/" class="cs-next-link">
+            Building a BI Community of Practice from Zero
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <span class="footer-identity">Prateek Singh · Lansing, MI</span>
+      <ul class="footer-links">
+        <li><a href="mailto:prateek.singh22@outlook.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/prateeksingh22" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/prateeks-viz" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="../../cv/Prateek_Singh_Resume.pdf">CV</a></li>
+      </ul>
+      <span class="footer-year">© 2026</span>
+    </div>
+  </footer>
+
+  <script src="../../js/nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Budget &amp; Expense Reporting for Operations Leadership — Prateek Singh</title>
+  <meta name="description" content="BI lead and SME role supporting an operations partner through Power BI reporting on spend, budget conformance, and variance — defining the rollup hierarchy, variance logic, and visualization approach.">
+
+  <meta property="og:title" content="Building Executive Budget &amp; Expense Reporting for Operations Leadership — Prateek Singh">
+  <meta property="og:description" content="Executive Reporting case study. Spend-rollup dimensional model, budget variance logic defined at each organizational level, and a Power BI reporting surface for operations and finance leadership.">
+  <meta property="og:type" content="article">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/layout.css">
+  <link rel="stylesheet" href="../../styles/components.css">
+  <link rel="stylesheet" href="../../styles/case-study.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../../" class="wordmark">Prateek Singh</a>
+      <ul class="nav-links">
+        <li><a href="../">Work</a></li>
+        <li><a href="../../about/">About</a></li>
+        <li><a href="../../#how-i-lead">How I Lead</a></li>
+        <li><a href="../../#contact">Contact</a></li>
+      </ul>
+      <button type="button" class="nav-toggle" aria-label="Open navigation menu">Menu</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+
+      <!-- ============================================================
+           Back link
+           ============================================================ -->
+      <div class="cs-back-wrap">
+        <div class="container">
+          <a href="../" class="cs-back">All work</a>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           Hero band
+           ============================================================ -->
+      <header class="cs-hero">
+        <div class="container">
+          <div class="cs-meta">
+            <div class="category-badge">
+              <span class="dot"></span>Executive Reporting · Jackson National Life
+            </div>
+          </div>
+
+          <h1 class="cs-title">Building Executive Budget &amp; Expense Reporting for Operations Leadership</h1>
+
+          <div class="cs-details">
+            <span class="detail">Senior Data Visualization &amp; Analytics Engineer</span>
+            <span class="detail">Sep 2022 – Present</span>
+          </div>
+
+          <ul class="cs-tags" aria-label="Case study tags">
+            <li>Power BI</li>
+            <li>Coaching</li>
+            <li>Stakeholder Advisory</li>
+            <li>Dimensional Modeling</li>
+            <li>SME Leadership</li>
+          </ul>
+
+          <div class="cs-confidentiality" role="note">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M8 4.5V8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="8" cy="11" r="0.65" fill="currentColor"/>
+            </svg>
+            <span>Specific business names, dashboards, and figures are anonymized for confidentiality. Full detail available under NDA.</span>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- ============================================================
+           TL;DR strip
+           ============================================================ -->
+      <section class="cs-tldr" aria-label="Case study at a glance">
+        <div class="container">
+          <div class="cs-tldr-grid">
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Owned</span>
+              <p class="cs-tldr-value">BI lead and SME role — reporting model, variance logic, visualization approach, and executive demo participation</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Built</span>
+              <p class="cs-tldr-value">Spend-rollup dimensional model across multiple organizational granularities + budget variance logic defined at each level</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Resulted in</span>
+              <p class="cs-tldr-value">Operations and finance leadership gained a single Power BI reporting surface for spend, budget, and variance across the organization</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Lasted</span>
+              <p class="cs-tldr-value">Standing reporting program for operations and finance leadership — in use since delivery</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           Prose body
+           ============================================================ -->
+      <div class="cs-prose-wrap">
+        <div class="container">
+          <div class="cs-prose">
+
+
+            <!-- Context -->
+            <section class="cs-section" aria-labelledby="cs-context">
+              <span class="cs-section-label">Context</span>
+              <h2 class="cs-section-heading" id="cs-context">Context</h2>
+
+              <p>An operations function at a Fortune 500 life insurance carrier that lacked structured BI reporting on spend and budget conformance. An operations partner was leading the Power BI build and understood the business domain well — but the reporting model needed BI expertise to define: how spend should roll up across the organization, how budget variance should be calculated consistently, and how the hierarchy should support multiple levels of leadership from individual cost units up to organizational totals.</p>
+            </section>
+
+
+            <!-- The Problem -->
+            <section class="cs-section" aria-labelledby="cs-problem">
+              <span class="cs-section-label">The Problem</span>
+              <h2 class="cs-section-heading" id="cs-problem">The Problem</h2>
+
+              <p>The gap wasn't technical ability — it was structural:</p>
+
+              <ul class="cs-problem-list">
+                <li>Operations and finance leadership had no single view of spend against budget across the organization — reporting existed in fragments, not as a governed model.</li>
+                <li>The operations partner leading the build had strong domain knowledge but needed a defined dimensional model before any Power BI work could be structurally sound.</li>
+                <li>Budget variance logic had never been defined consistently — different reports calculated it differently, which undermined trust in the numbers.</li>
+                <li>The reporting needed to serve executives at multiple granularity levels simultaneously without requiring a separate report for each audience.</li>
+              </ul>
+
+              <p class="cs-hinge">The real gap was a modeling gap: without a defined spend-rollup hierarchy and consistent variance logic, the build would produce visually correct reports that were structurally brittle.</p>
+            </section>
+
+
+            <!-- My Role -->
+            <section class="cs-section" aria-labelledby="cs-role">
+              <span class="cs-section-label">My Role</span>
+              <h2 class="cs-section-heading" id="cs-role">My Role</h2>
+
+              <p>BI lead and SME, supporting the operations partner who carried the primary Power BI build. I did not own the program — the operations partner did. My contribution was the model: defining the spend-rollup hierarchy, the variance logic at each granularity level, and the visualization approach. I coached the partner through those decisions during the build and participated in executive demos alongside them.</p>
+            </section>
+
+
+            <!-- Approach -->
+            <section class="cs-section" aria-labelledby="cs-approach">
+              <span class="cs-section-label">Approach</span>
+              <h2 class="cs-section-heading" id="cs-approach">Approach</h2>
+
+              <p class="cs-approach-intro">Four decisions shaped the engagement. The design principle behind all of them: <em>the model has to be structurally correct before a single visualization is built, or the visualizations will always be fragile.</em></p>
+
+              <ul class="cs-decisions">
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">01</span>
+                  <h3 class="cs-decision-title">Define the spend-rollup hierarchy before any build begins.</h3>
+                  <p class="cs-decision-body">Before the operations partner opened Power BI: establish the granularity levels the model needed to support — from individual cost units up through organizational totals — and the rules governing how each level aggregates to the next. This is the single decision that determines whether budget reporting is flexible or brittle six months after delivery.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">02</span>
+                  <h3 class="cs-decision-title">Treat variance as a first-class model concept, not a calculated afterthought.</h3>
+                  <p class="cs-decision-body">Budget variance is the output executives actually act on. Building variance logic into the model — not as a measure added after the fact — made it consistent across every granularity level and every time period. When variance is defined once in the model, every view inherits it; when it's calculated ad hoc in the visual layer, it diverges.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">03</span>
+                  <h3 class="cs-decision-title">Coach the builder; don't displace them.</h3>
+                  <p class="cs-decision-body">The operations partner understood the business domain in ways I didn't. My role was to ensure the model was structurally sound and that the visualization decisions supported executive use — not to take over the build. Every structural decision was explained rather than handed over, so the partner could maintain and extend the model without requiring BI SME involvement after delivery.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">04</span>
+                  <h3 class="cs-decision-title">Design one model for multiple leadership audiences.</h3>
+                  <p class="cs-decision-body">Finance leadership, operations leadership, and C-suite all needed the same data at different granularity levels. The model was designed to support drill-down from organizational totals to individual cost units in a single Power BI semantic layer — not as parallel reports for each audience. One model, multiple entry points.</p>
+                </li>
+
+              </ul>
+            </section>
+
+
+            <!-- What I Built -->
+            <section class="cs-section" aria-labelledby="cs-built">
+              <span class="cs-section-label">What I Built</span>
+              <h2 class="cs-section-heading" id="cs-built">What I Built</h2>
+
+              <ul class="cs-built-list">
+                <li>A spend-rollup dimensional model defining organizational granularity levels and the aggregation rules between them — the structural backbone of the entire reporting program.</li>
+                <li>Budget variance logic defined at each level of the hierarchy — consistent across all views, all time periods, and all audience levels.</li>
+                <li>A visualization approach and layout specification guiding the operations partner's Power BI build — how information should be layered, labeled, and navigated.</li>
+                <li>A Power BI reporting surface for operations and finance leadership covering spend, budget conformance, and variance across the organization.</li>
+                <li>Participation in executive demos alongside the operations partner — translating model logic into leadership language and fielding structural questions.</li>
+              </ul>
+            </section>
+
+
+            <!-- Visual Artifact (placeholder) -->
+            <figure class="cs-artifact" aria-label="Visual artifact placeholder — Spend Rollup Hierarchy">
+              <div class="cs-artifact-placeholder">
+
+                <svg viewBox="0 0 480 185" xmlns="http://www.w3.org/2000/svg"
+                     role="img" aria-labelledby="ph3-title ph3-desc"
+                     style="width:100%;max-width:480px;height:auto;display:block;">
+
+                  <title id="ph3-title">Placeholder — Spend Rollup Hierarchy diagram</title>
+                  <desc id="ph3-desc">Abstract preview of the Spend Rollup Hierarchy. Shows an organizational tree branching from a root Organization node through intermediate levels down to individual cost units at the leaf level, with a variance band indicated at the base.</desc>
+
+                  <style>
+                    .ph3-hdr  { fill: var(--paper-warm, #F3F0E8); }
+                    .ph3-rule { stroke: var(--rule, #E5E2D8); stroke-width: 1; fill: none; }
+                    /* Top org node: blue — executive/decision layer */
+                    .ph3-box  { fill: var(--viz-blue-soft, #EEF3F8); stroke: var(--viz-blue, #2F5D8C); stroke-width: 1.5; }
+                    /* L2 org nodes: teal — mid-level rollup */
+                    .ph3-l2   { fill: var(--viz-teal-soft, #EEF5F4); stroke: var(--viz-teal, #2A8C82); stroke-width: 1.5; }
+                    /* Connectors and rollup arrows */
+                    .ph3-arr  { stroke: var(--ink-faint, #8A8A8A); stroke-width: 1.2; fill: none; }
+                    /* Leaf-level dots: green — granular data nodes */
+                    .ph3-dot  { fill: var(--viz-green, #5F7F4F); }
+                    /* Variance band: amber — budget / conformance signal */
+                    .ph3-vband{ stroke: var(--viz-amber, #C58A2A); stroke-width: 0.8; stroke-dasharray: 3 3; fill: none; }
+                    .ph3-col  { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; fill: var(--ink, #1A1A1A); text-anchor: middle; dominant-baseline: central; }
+                    .ph3-lbl  { font-family: 'IBM Plex Sans', sans-serif; font-size: 9px; fill: var(--ink-faint, #8A8A8A); text-anchor: middle; dominant-baseline: central; }
+                  </style>
+
+                  <rect x="0" y="0" width="480" height="24" class="ph3-hdr"/>
+                  <line x1="0" y1="24" x2="480" y2="24" class="ph3-rule"/>
+                  <text x="240" y="13" class="ph3-col">SPEND ROLLUP HIERARCHY</text>
+
+                  <!-- Root -->
+                  <rect x="205" y="32" width="70" height="18" rx="2" class="ph3-box"/>
+
+                  <!-- Level 2 connectors and nodes -->
+                  <line x1="240" y1="50" x2="100" y2="70" class="ph3-arr"/>
+                  <line x1="240" y1="50" x2="240" y2="70" class="ph3-arr"/>
+                  <line x1="240" y1="50" x2="380" y2="70" class="ph3-arr"/>
+                  <rect x="65"  y="70" width="70" height="18" rx="2" class="ph3-l2"/>
+                  <rect x="205" y="70" width="70" height="18" rx="2" class="ph3-l2"/>
+                  <rect x="345" y="70" width="70" height="18" rx="2" class="ph3-l2"/>
+
+                  <!-- Level 3 connectors -->
+                  <line x1="100" y1="88" x2="52"  y2="110" class="ph3-arr"/>
+                  <line x1="100" y1="88" x2="100" y2="110" class="ph3-arr"/>
+                  <line x1="100" y1="88" x2="148" y2="110" class="ph3-arr"/>
+                  <line x1="240" y1="88" x2="192" y2="110" class="ph3-arr"/>
+                  <line x1="240" y1="88" x2="240" y2="110" class="ph3-arr"/>
+                  <line x1="240" y1="88" x2="288" y2="110" class="ph3-arr"/>
+                  <line x1="380" y1="88" x2="332" y2="110" class="ph3-arr"/>
+                  <line x1="380" y1="88" x2="380" y2="110" class="ph3-arr"/>
+                  <line x1="380" y1="88" x2="428" y2="110" class="ph3-arr"/>
+
+                  <!-- Leaf dots -->
+                  <circle cx="52"  cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="100" cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="148" cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="192" cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="240" cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="288" cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="332" cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="380" cy="116" r="4" class="ph3-dot"/>
+                  <circle cx="428" cy="116" r="4" class="ph3-dot"/>
+
+                  <!-- Variance band hint -->
+                  <line x1="30" y1="138" x2="450" y2="138" class="ph3-vband"/>
+                  <text x="240" y="150" class="ph3-lbl">variance band — within / under / over budget at each level</text>
+                  <text x="240" y="173" class="ph3-lbl">Cost units at leaf level — full hierarchy in final artifact</text>
+
+                </svg>
+
+                <p class="artifact-phase">Visual Artifact · Forthcoming</p>
+                <p class="artifact-label">Spend Rollup Hierarchy</p>
+
+              </div>
+              <figcaption>Fig. 1 — Organizational spend-rollup hierarchy showing how budget and actuals aggregate from individual cost units through intermediate organizational levels to totals. Variance is defined consistently at each level. Specific organizational labels are abstract — full annotations in the final artifact.</figcaption>
+            </figure>
+
+
+            <!-- Outcome -->
+            <section class="cs-section" aria-labelledby="cs-outcome">
+              <span class="cs-section-label">Outcome</span>
+              <h2 class="cs-section-heading" id="cs-outcome">Outcome</h2>
+
+              <p>Operations and finance leadership gained a structured Power BI reporting surface covering spend, budget conformance, and variance across the organization. The model supported multiple levels of leadership simultaneously — from C-suite organizational totals down to cost-unit detail — without requiring separate reports for each audience.</p>
+
+              <ul class="cs-outcome-list">
+                <li>A single Power BI semantic model serving both executive and operational leadership on spend and budget conformance.</li>
+                <li>Budget variance defined consistently at each level of the organizational hierarchy — no divergence between views or cadences.</li>
+                <li>BI capability extended into the operations function through structured SME guidance — the operations partner carries the model forward independently.</li>
+                <li>A standing reporting program in use since delivery.</li>
+              </ul>
+
+              <p class="cs-outcome-note">Specific spend figures and adoption metrics are not published here.</p>
+            </section>
+
+
+            <!-- Reflection -->
+            <section class="cs-section" aria-labelledby="cs-reflection">
+              <span class="cs-section-label">Reflection</span>
+              <h2 class="cs-section-heading" id="cs-reflection">Reflection</h2>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Lock the hierarchy as a shared document before any model work starts.</h3>
+                <p>I defined the rollup hierarchy before the build — but it existed only in conversation for too long before it was written down. Misalignment about what "by unit" meant versus "by department" surfaced mid-build because different stakeholders had internalized different assumptions. A one-page hierarchy document shared and signed off on before the first Power BI session would have prevented that.</p>
+              </div>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Transfer demo ownership to the operations partner earlier.</h3>
+                <p>I participated in executive demos alongside the partner for longer than necessary. It would have been a stronger outcome to transfer demo ownership earlier — building the partner's confidence to present independently, rather than creating a dependency on BI SME presence. The goal was always for them not to need me. I should have worked toward that faster.</p>
+              </div>
+
+              <p class="cs-lesson">The broader lesson: SME leadership in BI isn't about being the most technically capable person in the room — it's about transferring the right structural thinking to the person who will carry the work forward. The measure isn't the quality of the model; it's whether the model still makes sense when you're not in the room.</p>
+            </section>
+
+
+          </div><!-- /.cs-prose -->
+        </div><!-- /.container -->
+      </div><!-- /.cs-prose-wrap -->
+
+    </article>
+  </main>
+
+
+  <!-- ============================================================
+       Case navigation
+       ============================================================ -->
+  <nav class="cs-next" aria-label="Case study navigation">
+    <div class="container">
+      <div class="cs-next-inner">
+        <a href="../c-suite-product-sales/" class="back-to-work">← Previous case</a>
+        <div>
+          <span class="cs-next-label">Next case study</span>
+          <a href="../dashboard-discovery/" class="cs-next-link">
+            The Dashboard No One Could Find: Reporting Discoverability at Red Hat
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <span class="footer-identity">Prateek Singh · Lansing, MI</span>
+      <ul class="footer-links">
+        <li><a href="mailto:prateek.singh22@outlook.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/prateeksingh22" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/prateeks-viz" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="../../cv/Prateek_Singh_Resume.pdf">CV</a></li>
+      </ul>
+      <span class="footer-year">© 2026</span>
+    </div>
+  </footer>
+
+  <script src="../../js/nav.js" defer></script>
+</body>
+</html>

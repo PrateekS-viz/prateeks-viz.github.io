@@ -1,0 +1,579 @@
+/* ============================================================
+   case-study.css
+   Shared across all five case study pages.
+   Include after components.css.
+   ============================================================ */
+
+/* ============================================================
+   Back navigation
+   ============================================================ */
+.cs-back-wrap {
+  padding-top: var(--s-5);
+  padding-bottom: var(--s-5);
+}
+
+.cs-back {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  transition: color var(--t-fast) var(--ease-soft);
+}
+
+.cs-back::before {
+  content: "←";
+  transition: transform var(--t-base) var(--ease-soft);
+}
+
+.cs-back:hover { color: var(--accent); }
+.cs-back:hover::before { transform: translateX(-3px); }
+
+/* ============================================================
+   Hero band
+   ============================================================ */
+.cs-hero {
+  padding-top: var(--s-5);
+  padding-bottom: var(--s-7);
+  border-bottom: 1px solid var(--rule);
+}
+
+.cs-meta {
+  margin-bottom: var(--s-5);
+}
+
+.cs-title {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 0 0 var(--s-5);
+  max-width: 22ch;
+}
+
+.cs-details {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin-bottom: var(--s-4);
+}
+
+.cs-details .detail + .detail::before {
+  content: "·";
+  margin: 0 var(--s-4);
+  color: var(--ink-faint);
+}
+
+.cs-detail-readtime {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.cs-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cs-tags li + li::before {
+  content: "·";
+  margin: 0 var(--s-3);
+  color: var(--ink-faint);
+}
+
+/* Confidentiality callout */
+.cs-confidentiality {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s-4) 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  max-width: 68ch;
+}
+
+.cs-confidentiality svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  opacity: 0.6;
+}
+
+/* ============================================================
+   TL;DR strip
+   ============================================================ */
+.cs-tldr {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s-5) 0;
+}
+
+.cs-tldr-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cs-tldr-item {
+  padding: var(--s-4) var(--s-6) var(--s-4) 0;
+  border-right: 1px solid var(--rule);
+}
+
+.cs-tldr-item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.cs-tldr-item:not(:first-child) {
+  padding-left: var(--s-6);
+}
+
+.cs-tldr-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+  display: block;
+  margin-bottom: var(--s-2);
+}
+
+.cs-tldr-value {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .cs-tldr-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .cs-tldr-item:nth-child(2) { border-right: none; padding-right: 0; }
+  .cs-tldr-item:nth-child(2n+1) { padding-left: 0; }
+  .cs-tldr-item:nth-child(1),
+  .cs-tldr-item:nth-child(2) {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: var(--s-5);
+  }
+  .cs-tldr-item:nth-child(3),
+  .cs-tldr-item:nth-child(4) { padding-top: var(--s-5); }
+}
+
+@media (max-width: 540px) {
+  .cs-tldr-grid { grid-template-columns: 1fr; }
+  .cs-tldr-item,
+  .cs-tldr-item:not(:first-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: var(--s-4) 0;
+  }
+  .cs-tldr-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .cs-tldr-item:nth-child(3),
+  .cs-tldr-item:nth-child(4) { padding-top: var(--s-4); }
+}
+
+/* ============================================================
+   Prose wrapper — the long-form body of the case study
+   ============================================================ */
+.cs-prose-wrap {
+  padding-top: var(--s-9);
+  padding-bottom: var(--s-9);
+}
+
+.cs-prose {
+  max-width: var(--max-prose);
+}
+
+/* ============================================================
+   Content sections (Context, Problem, My Role, etc.)
+   ============================================================ */
+.cs-section {
+  margin-bottom: var(--s-9);
+}
+
+.cs-section:last-child { margin-bottom: 0; }
+
+/* Small-caps section label above each heading */
+.cs-section-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--rule);
+}
+
+.cs-section-heading {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
+  color: var(--ink);
+  margin: 0 0 var(--s-5);
+}
+
+/* Body paragraphs */
+.cs-section p {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 var(--s-5);
+  max-width: none;
+}
+
+.cs-section p:last-child { margin-bottom: 0; }
+
+/* Italic hinge sentence — the structural insight that pivots the section */
+.cs-hinge {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding: var(--s-2) 0 var(--s-2) var(--s-5);
+  margin: var(--s-6) 0;
+  max-width: none;
+}
+
+/* ============================================================
+   Problem bullets
+   ============================================================ */
+.cs-problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.cs-problem-list li {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  padding-left: var(--s-5);
+  position: relative;
+}
+
+.cs-problem-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--ink-faint);
+}
+
+/* ============================================================
+   Approach — 4 numbered decisions
+   ============================================================ */
+.cs-approach-intro {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin: 0 0 var(--s-6);
+  max-width: none;
+}
+
+.cs-decisions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cs-decision {
+  padding: var(--s-6) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.cs-decision:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.cs-decision-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: var(--s-3);
+}
+
+.cs-decision-title {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 0 var(--s-3);
+}
+
+.cs-decision-body {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--ink-muted);
+  margin: 0;
+  max-width: none;
+}
+
+/* ============================================================
+   What I Built — artifact list
+   ============================================================ */
+.cs-built-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.cs-built-list li {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  padding-left: var(--s-5);
+  position: relative;
+}
+
+.cs-built-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--ink-faint);
+}
+
+/* ============================================================
+   Visual artifact — placeholder (Phase 4 will replace)
+   ============================================================ */
+.cs-artifact {
+  margin: var(--s-9) 0;
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  max-width: var(--max-prose);
+}
+
+.cs-artifact-placeholder {
+  background: var(--paper-warm);
+  padding: var(--s-8) var(--s-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-5);
+  min-height: 280px;
+  text-align: center;
+}
+
+.cs-artifact-placeholder svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  opacity: 0.8;
+}
+
+.cs-artifact-placeholder .artifact-label {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+}
+
+.cs-artifact-placeholder .artifact-phase {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.cs-artifact figcaption {
+  padding: var(--s-4) var(--s-5);
+  border-top: 1px solid var(--rule);
+  background: var(--paper-elev);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink-faint);
+}
+
+/* ============================================================
+   Outcome section
+   ============================================================ */
+.cs-outcome-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.cs-outcome-list li {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  padding-left: var(--s-5);
+  position: relative;
+}
+
+.cs-outcome-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--ink-faint);
+}
+
+.cs-outcome-note {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s-4);
+  margin-top: var(--s-6);
+  max-width: none;
+}
+
+/* ============================================================
+   Reflection section
+   ============================================================ */
+.cs-reflection-item {
+  margin-bottom: var(--s-6);
+}
+
+.cs-reflection-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.cs-reflection-title {
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  color: var(--ink);
+  margin: 0 0 var(--s-3);
+}
+
+/* Broader lesson — closing serif italic block */
+.cs-lesson {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  border-left: 2px solid var(--accent);
+  padding: var(--s-2) 0 var(--s-2) var(--s-5);
+  margin-top: var(--s-7);
+  max-width: none;
+}
+
+/* ============================================================
+   Next case band
+   ============================================================ */
+.cs-next {
+  border-top: 1px solid var(--rule);
+  background: var(--paper-warm);
+  padding: var(--s-7) 0;
+}
+
+.cs-next-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-5) var(--s-7);
+  flex-wrap: wrap;
+}
+
+.cs-next-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cs-next-link {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.008em;
+  line-height: 1.25;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  transition: color var(--t-base) var(--ease-soft);
+}
+
+.cs-next-link:hover { color: var(--accent-hover); }
+
+.cs-next-link .arrow {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.85em;
+  transition: transform var(--t-base) var(--ease-soft);
+}
+
+.cs-next-link:hover .arrow { transform: translateX(4px); }
+
+@media (max-width: 720px) {
+  .cs-next-inner { flex-direction: column; gap: var(--s-3); }
+}
+
+/* ============================================================
+   Phase 4 — finalized artifact replaces the dashed placeholder
+   ============================================================ */
+.cs-artifact--final {
+  border: 1px solid var(--rule);
+  background: var(--paper-elev);
+}
+
+.cs-artifact--final figcaption {
+  background: var(--paper-warm);
+}

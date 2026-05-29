@@ -1,0 +1,70 @@
+/* ============================================================
+   layout.css — page width, section spacing, grids, breakpoints
+   ============================================================ */
+
+/* ----- Container ----- */
+.container {
+  width: 100%;
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: 0 var(--s-7);
+}
+
+@media (max-width: 720px) {
+  .container { padding: 0 var(--s-5); }
+}
+
+/* ----- Section spacing ----- */
+.section { padding: var(--s-9) 0; }
+.section--tight { padding: var(--s-7) 0; }
+.section--large { padding: var(--s-10) 0; }
+
+@media (max-width: 720px) {
+  .section { padding: var(--s-7) 0; }
+  .section--tight { padding: var(--s-6) 0; }
+  .section--large { padding: var(--s-8) 0; }
+}
+
+/* Spacing between adjacent sections — collapse so the design's
+   rhythm isn't disrupted by double padding. */
+.section + .section { padding-top: 0; }
+
+/* ----- Hero block layout ----- */
+.hero {
+  padding-top: var(--s-8);
+  padding-bottom: var(--s-8);
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-top: var(--s-6);
+    padding-bottom: var(--s-6);
+  }
+}
+
+/* ----- Metrics grid: 4 → 2 → 1 ----- */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 1024px) {
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .metric-grid { grid-template-columns: 1fr; }
+}
+
+/* ----- Card grid: 2 → 1 ----- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-5);
+}
+
+@media (max-width: 900px) {
+  .card-grid { grid-template-columns: 1fr; }
+}

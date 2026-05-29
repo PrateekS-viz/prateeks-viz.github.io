@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau Governance at a Fortune 500 Insurer — Prateek Singh</title>
+  <meta name="description" content="How a dev / QA / production discipline, stewardship-based permissioning, and versioning practices contributed to an ~80% reduction in reporting failures across an enterprise Tableau environment.">
+
+  <meta property="og:title" content="Standing Up Tableau Governance at a Fortune 500 Insurer — Prateek Singh">
+  <meta property="og:description" content="Platform &amp; Governance case study. Site administrator for two enterprise Tableau sites — environment model, stewardship-based permissions, versioning practices, and a standing BI Community of Practice.">
+  <meta property="og:type" content="article">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/layout.css">
+  <link rel="stylesheet" href="../../styles/components.css">
+  <link rel="stylesheet" href="../../styles/case-study.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../../" class="wordmark">Prateek Singh</a>
+      <ul class="nav-links">
+        <li><a href="../">Work</a></li>
+        <li><a href="../../about/">About</a></li>
+        <li><a href="../../#how-i-lead">How I Lead</a></li>
+        <li><a href="../../#contact">Contact</a></li>
+      </ul>
+      <button type="button" class="nav-toggle" aria-label="Open navigation menu">Menu</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+
+      <!-- ============================================================
+           Back link
+           ============================================================ -->
+      <div class="cs-back-wrap">
+        <div class="container">
+          <a href="../" class="cs-back">All work</a>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           Hero band
+           ============================================================ -->
+      <header class="cs-hero">
+        <div class="container">
+          <div class="cs-meta">
+            <div class="category-badge">
+              <span class="dot"></span>Platform &amp; Governance · Jackson National Life
+            </div>
+          </div>
+
+          <h1 class="cs-title">Standing Up Tableau Governance at a Fortune 500 Insurer</h1>
+
+          <div class="cs-details">
+            <span class="detail">Senior Data Visualization &amp; Analytics Engineer</span>
+            <span class="detail">Sep 2022 – Present</span>
+          </div>
+
+          <ul class="cs-tags" aria-label="Case study tags">
+            <li>Tableau Server Administration</li>
+            <li>Reporting Platform</li>
+            <li>Governance</li>
+            <li>Change Management</li>
+            <li>Operating Model</li>
+          </ul>
+
+          <!-- Confidentiality callout -->
+          <div class="cs-confidentiality" role="note">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M8 4.5V8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="8" cy="11" r="0.65" fill="currentColor"/>
+            </svg>
+            <span>Specific business names, dashboards, and figures are anonymized for confidentiality. Full detail available under NDA.</span>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- ============================================================
+           TL;DR strip
+           ============================================================ -->
+      <section class="cs-tldr" aria-label="Case study at a glance">
+        <div class="container">
+          <div class="cs-tldr-grid">
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Owned</span>
+              <p class="cs-tldr-value">Two enterprise Tableau sites as site administrator</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Built</span>
+              <p class="cs-tldr-value">Dev / QA / Production environments + stewardship-based permissioning + versioning practice</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Resulted in</span>
+              <p class="cs-tldr-value">~80% reduction in failures, refresh issues, and manual intervention (combined with ADF pipelines)</p>
+            </div>
+
+            <div class="cs-tldr-item">
+              <span class="cs-tldr-label">Lasted</span>
+              <p class="cs-tldr-value">Standing BI Community of Practice — governance as a running operating rhythm, not a document</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           Prose body
+           ============================================================ -->
+      <div class="cs-prose-wrap">
+        <div class="container">
+          <div class="cs-prose">
+
+
+            <!-- Context ------------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-context">
+              <span class="cs-section-label">Context</span>
+              <h2 class="cs-section-heading" id="cs-context">Context</h2>
+
+              <p>A Fortune 500 life insurance carrier with an enterprise Tableau footprint serving eight business functions — finance, HR, operations, distribution, executive leadership, education, customer care, and document management — plus external stakeholder groups including advisors, wholesalers, and legal. Two enterprise Tableau sites housed the reporting these functions depended on day to day. I took ownership of both as site administrator.</p>
+            </section>
+
+
+            <!-- The Problem --------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-problem">
+              <span class="cs-section-label">The Problem</span>
+              <h2 class="cs-section-heading" id="cs-problem">The Problem</h2>
+
+              <p>The estate had grown faster than the discipline around it. The symptoms were familiar in environments where Tableau adoption outpaces platform investment:</p>
+
+              <ul class="cs-problem-list">
+                <li>Development, QA, and production work lived too close together, with no clean separation between in-progress builds and executive-facing reports.</li>
+                <li>Permissions had drifted — access had been granted one ticket at a time, without a model behind it.</li>
+                <li>Data sources, flows, and workbooks were treated as independent artifacts rather than a coordinated estate.</li>
+                <li>Refresh failures and manual intervention had become routine, gradually weakening trust in the platform's outputs.</li>
+              </ul>
+
+              <p class="cs-hinge">For an environment that surfaces information to senior leaders, the trust dimension was the most consequential.</p>
+            </section>
+
+
+            <!-- My Role ------------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-role">
+              <span class="cs-section-label">My Role</span>
+              <h2 class="cs-section-heading" id="cs-role">My Role</h2>
+
+              <p>I owned the platform-administration side end-to-end as site administrator for both enterprise Tableau sites: the environment model, the folder structure, the permissioning model, and the versioning and change-management practices governing promotion. I did not own the underlying data warehousing or the business teams' individual dashboard backlogs — those sit with partner teams.</p>
+
+              <p>In parallel, I co-lead the enterprise BI Community of Practice and coach 7–8 BI analysts and engineers, which is how the governance gets operationalized week to week.</p>
+            </section>
+
+
+            <!-- Approach ------------------------------------------ -->
+            <section class="cs-section" aria-labelledby="cs-approach">
+              <span class="cs-section-label">Approach</span>
+              <h2 class="cs-section-heading" id="cs-approach">Approach</h2>
+
+              <p class="cs-approach-intro">Four decisions shaped the program. The principle behind all of them: <em>governance only works when the governed path is the easiest path.</em></p>
+
+              <ul class="cs-decisions">
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">01</span>
+                  <h3 class="cs-decision-title">Treat the platform as one estate.</h3>
+                  <p class="cs-decision-body">A single folder and environment model applied across both Tableau sites, so conventions don't change based on where a builder is working. The platform is one thing; the sites are two access points into it.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">02</span>
+                  <h3 class="cs-decision-title">Make dev, QA, and production real, not nominal.</h3>
+                  <p class="cs-decision-body">Formal dev / QA / production environments for data sources, flows, and workbooks — with promotion rules behind the names, not just naming conventions. The environment labels only carry weight when there are rules that enforce them.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">03</span>
+                  <h3 class="cs-decision-title">Permission by intent, not by ticket.</h3>
+                  <p class="cs-decision-body">Permissions rebuilt around stewardship roles. The model defines who owns what; access decisions follow from that. A permissioning model that isn't written down can't be consistently enforced — and one enforced inconsistently is worse than none at all.</p>
+                </li>
+
+                <li class="cs-decision">
+                  <span class="cs-decision-num">04</span>
+                  <h3 class="cs-decision-title">Introduce versioning and change management.</h3>
+                  <p class="cs-decision-body">A versioning and change-management layer for the Tableau environment so promotion to production became a deliberate step with a record behind it. A structured versioning practice — not a full pipeline tooling deployment, but enough structure that changes to production had a history and a reason.</p>
+                </li>
+
+              </ul>
+            </section>
+
+
+            <!-- What I Built -------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-built">
+              <span class="cs-section-label">What I Built</span>
+              <h2 class="cs-section-heading" id="cs-built">What I Built</h2>
+
+              <ul class="cs-built-list">
+                <li>A unified folder and environment model across both enterprise Tableau sites.</li>
+                <li>Formal dev / QA / production environments for data sources, flows, and workbooks — with promotion rules, not just labels.</li>
+                <li>A stewardship-based permissioning model covering all three artifact types.</li>
+                <li>A versioning and change-management practice for the Tableau environment.</li>
+                <li>Rationalization of 100+ reporting assets — retiring overlap and establishing single sources of truth where the same question had been answered by multiple workbooks.</li>
+                <li>An enterprise BI Community of Practice as the operating rhythm: bi-weekly office hours and monthly enablement sessions covering Tableau, Power BI, Microsoft Fabric, and visualization best practices. Co-led; this is how governance gets reinforced between platform reviews.</li>
+              </ul>
+            </section>
+
+
+            <!-- Visual Artifact — Environment & Promotion Model -->
+            <figure class="cs-artifact cs-artifact--final">
+
+              <!-- ═══════════════════════════════════════════════════════
+                   ENVIRONMENT & PROMOTION MODEL
+                   Three-column diagram: Dev → QA → Production
+                   Applied consistently across Data Sources, Flows, and Workbooks.
+                   Gate 1 = Stewardship Review  |  Gate 2 = Change-Control Checkpoint
+                   All labels are generic. No internal system names or business units.
+                   ═══════════════════════════════════════════════════════ -->
+              <svg viewBox="0 0 700 396" xmlns="http://www.w3.org/2000/svg"
+                   role="img" aria-labelledby="ep-title ep-desc"
+                   style="width:100%;height:auto;display:block;">
+
+                <title id="ep-title">Environment and Promotion Model</title>
+                <desc id="ep-desc">
+                  Three-column, three-row diagram showing how Data Sources, Flows, and Workbooks
+                  each move through Dev, QA, and Production environments. Promotion from Dev to QA
+                  requires a Stewardship Review (gate 1). Promotion from QA to Production requires
+                  a Change-Control Checkpoint (gate 2). The same promotion rules apply to all three
+                  artifact types.
+                </desc>
+
+                <style>
+                  .ep-hdr  { fill: var(--paper-warm, #F3F0E8); }
+                  .ep-rule { stroke: var(--rule, #E5E2D8); stroke-width: 1; fill: none; }
+                  .ep-vln  { stroke: var(--rule, #E5E2D8); stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+                  /* Column fills — semantic: Dev=blue, QA=amber, Prod=teal */
+                  .ep-dev  { fill: #FAFAF6; stroke: var(--viz-blue, #2F5D8C); stroke-width: 1.5; }
+                  .ep-qa   { fill: var(--viz-amber-soft, #FAF4E8); stroke: var(--viz-amber, #C58A2A); stroke-width: 1.5; }
+                  .ep-pr   { fill: var(--viz-teal-soft, #EEF5F4); stroke: var(--viz-teal, #2A8C82); stroke-width: 1.5; }
+                  /* Legacy aliases — kept for card preview SVG */
+                  .ep-box  { fill: var(--paper-elev, #FFFFFF); stroke: var(--accent, #1F2A44); stroke-width: 1.5; }
+                  .ep-prod { fill: var(--paper-warm, #F3F0E8); stroke: var(--accent, #1F2A44); stroke-width: 1.5; }
+                  .ep-arr  { stroke: var(--accent, #1F2A44); stroke-width: 1.5; fill: none; }
+                  .ep-ahd  { fill: var(--accent, #1F2A44); stroke: none; }
+                  /* Gate circles — Gate 1 = amber (stewardship), Gate 2 = plum (change-control) */
+                  .ep-g1   { fill: var(--viz-amber-soft, #FAF4E8); stroke: var(--viz-amber, #C58A2A); stroke-width: 1.2; }
+                  .ep-g2   { fill: var(--viz-plum-soft, #F3F0F8); stroke: var(--viz-plum, #6F5A8C); stroke-width: 1.2; }
+                  .ep-gc   { fill: var(--paper, #FAFAF6); stroke: var(--ink-muted, #595959); stroke-width: 1.2; }
+                  .ep-gn   { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; font-weight: 700;
+                             fill: var(--ink-muted, #595959); text-anchor: middle; dominant-baseline: central; }
+                  .ep-gn1  { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; font-weight: 700;
+                             fill: var(--viz-amber, #C58A2A); text-anchor: middle; dominant-baseline: central; }
+                  .ep-gn2  { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; font-weight: 700;
+                             fill: var(--viz-plum, #6F5A8C); text-anchor: middle; dominant-baseline: central; }
+                  .ep-col  { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px;
+                             fill: var(--ink, #1A1A1A); text-anchor: middle; dominant-baseline: central; }
+                  .ep-sub  { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px;
+                             fill: var(--ink-faint, #8A8A8A); text-anchor: middle; dominant-baseline: central; }
+                  .ep-row  { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px;
+                             fill: var(--ink-muted, #595959); text-anchor: end; dominant-baseline: central; }
+                  .ep-anl  { font-family: 'IBM Plex Sans', sans-serif; font-size: 11.5px; font-weight: 600;
+                             fill: var(--ink-muted, #595959); }
+                  .ep-ann  { font-family: 'IBM Plex Sans', sans-serif; font-size: 11.5px;
+                             fill: var(--ink-faint, #8A8A8A); }
+                  .ep-num  { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; font-weight: 700;
+                             fill: var(--accent, #1F2A44); text-anchor: middle; dominant-baseline: central; }
+                </style>
+
+                <!-- ── Header band ─────────────────────────────────── -->
+                <rect x="0" y="0" width="700" height="52" class="ep-hdr"/>
+                <line x1="0" y1="52" x2="700" y2="52" class="ep-rule"/>
+
+                <text x="195" y="24" class="ep-col">DEV</text>
+                <text x="195" y="42" class="ep-sub">Development</text>
+
+                <text x="400" y="24" class="ep-col">QA</text>
+                <text x="400" y="42" class="ep-sub">Stewardship Review</text>
+
+                <text x="605" y="24" class="ep-col">PROD</text>
+                <text x="605" y="42" class="ep-sub">Version Tracked</text>
+
+                <!-- ── Gate-zone vertical separators ─────────────── -->
+                <!-- These run through all three rows to show the gate applies uniformly -->
+                <line x1="297" y1="62" x2="297" y2="312" class="ep-vln"/>
+                <line x1="502" y1="62" x2="502" y2="312" class="ep-vln"/>
+
+                <!-- ── ROW 1: Data Sources ─────────────────────────── -->
+                <text x="114" y="92" class="ep-row">Data Sources</text>
+
+                <rect x="120" y="62" width="150" height="60" rx="3" class="ep-dev"/>
+                <rect x="325" y="62" width="150" height="60" rx="3" class="ep-qa"/>
+                <rect x="530" y="62" width="150" height="60" rx="3" class="ep-pr"/>
+
+                <!-- arrow + gate 1 -->
+                <line x1="270" y1="92" x2="287" y2="92" class="ep-arr"/>
+                <line x1="307" y1="92" x2="325" y2="92" class="ep-arr"/>
+                <polygon points="321,88 325,92 321,96" class="ep-ahd"/>
+                <circle cx="297" cy="92" r="9" class="ep-g1"/>
+                <text x="297" y="92" class="ep-gn1">1</text>
+
+                <!-- arrow + gate 2 -->
+                <line x1="475" y1="92" x2="491" y2="92" class="ep-arr"/>
+                <line x1="513" y1="92" x2="530" y2="92" class="ep-arr"/>
+                <polygon points="526,88 530,92 526,96" class="ep-ahd"/>
+                <circle cx="502" cy="92" r="9" class="ep-g2"/>
+                <text x="502" y="92" class="ep-gn2">2</text>
+
+                <!-- ── ROW 2: Flows ────────────────────────────────── -->
+                <text x="114" y="187" class="ep-row">Flows</text>
+
+                <rect x="120" y="157" width="150" height="60" rx="3" class="ep-dev"/>
+                <rect x="325" y="157" width="150" height="60" rx="3" class="ep-qa"/>
+                <rect x="530" y="157" width="150" height="60" rx="3" class="ep-pr"/>
+
+                <line x1="270" y1="187" x2="287" y2="187" class="ep-arr"/>
+                <line x1="307" y1="187" x2="325" y2="187" class="ep-arr"/>
+                <polygon points="321,183 325,187 321,191" class="ep-ahd"/>
+                <circle cx="297" cy="187" r="9" class="ep-g1"/>
+                <text x="297" y="187" class="ep-gn1">1</text>
+
+                <line x1="475" y1="187" x2="491" y2="187" class="ep-arr"/>
+                <line x1="513" y1="187" x2="530" y2="187" class="ep-arr"/>
+                <polygon points="526,183 530,187 526,191" class="ep-ahd"/>
+                <circle cx="502" cy="187" r="9" class="ep-g2"/>
+                <text x="502" y="187" class="ep-gn2">2</text>
+
+                <!-- ── ROW 3: Workbooks ────────────────────────────── -->
+                <text x="114" y="282" class="ep-row">Workbooks</text>
+
+                <rect x="120" y="252" width="150" height="60" rx="3" class="ep-dev"/>
+                <rect x="325" y="252" width="150" height="60" rx="3" class="ep-qa"/>
+                <rect x="530" y="252" width="150" height="60" rx="3" class="ep-pr"/>
+
+                <line x1="270" y1="282" x2="287" y2="282" class="ep-arr"/>
+                <line x1="307" y1="282" x2="325" y2="282" class="ep-arr"/>
+                <polygon points="321,278 325,282 321,286" class="ep-ahd"/>
+                <circle cx="297" cy="282" r="9" class="ep-g1"/>
+                <text x="297" y="282" class="ep-gn1">1</text>
+
+                <line x1="475" y1="282" x2="491" y2="282" class="ep-arr"/>
+                <line x1="513" y1="282" x2="530" y2="282" class="ep-arr"/>
+                <polygon points="526,278 530,282 526,286" class="ep-ahd"/>
+                <circle cx="502" cy="282" r="9" class="ep-g2"/>
+                <text x="502" y="282" class="ep-gn2">2</text>
+
+                <!-- ── Annotation band ─────────────────────────────── -->
+                <line x1="120" y1="324" x2="680" y2="324" class="ep-rule"/>
+
+                <!-- Gate 1 annotation -->
+                <circle cx="122" cy="339" r="7" class="ep-g1"/>
+                <text x="122" y="339" class="ep-gn1">1</text>
+                <text x="137" y="337" class="ep-anl">Stewardship Review</text>
+                <text x="137" y="352" class="ep-ann">Owner approval required before promotion from Dev to QA.</text>
+
+                <!-- Gate 2 annotation -->
+                <circle cx="122" cy="372" r="7" class="ep-g2"/>
+                <text x="122" y="372" class="ep-gn2">2</text>
+                <text x="137" y="370" class="ep-anl">Change-Control Checkpoint</text>
+                <text x="137" y="385" class="ep-ann">Version record required before promotion from QA to Production.</text>
+
+              </svg>
+
+              <figcaption>Fig. 1 — Environment and promotion model across two enterprise Tableau sites. The same dev / QA / production discipline and promotion-gate rules apply to all three artifact types: data sources, flows, and workbooks.</figcaption>
+            </figure>
+
+
+            <!-- Outcome ------------------------------------------ -->
+            <section class="cs-section" aria-labelledby="cs-outcome">
+              <span class="cs-section-label">Outcome</span>
+              <h2 class="cs-section-heading" id="cs-outcome">Outcome</h2>
+
+              <p>This work was the governance arm of a broader reporting reliability program at the carrier. Alongside the parallel modernization of upstream pipelines into Azure Data Factory — covered in Case Study 2 — the combined program reduced pipeline failures, refresh issues, and manual intervention by approximately 80% across the analytics workflows. The governance work contributed the platform-discipline half of that result.</p>
+
+              <ul class="cs-outcome-list">
+                <li>Two enterprise Tableau sites under formal site-administrator ownership, governed by a single environment and permissioning model.</li>
+                <li>100+ reporting assets brought under governance — dev / QA / production separation, versioning, and ownership clearly assigned.</li>
+                <li>Eight business functions operating against one governed platform.</li>
+                <li>A standing BI Community of Practice turning governance from a document into an operating rhythm.</li>
+              </ul>
+
+              <p class="cs-outcome-note">Adoption rates, stakeholder counts, and dollar-impact figures are not published here.</p>
+            </section>
+
+
+            <!-- Reflection --------------------------------------- -->
+            <section class="cs-section" aria-labelledby="cs-reflection">
+              <span class="cs-section-label">Reflection</span>
+              <h2 class="cs-section-heading" id="cs-reflection">Reflection</h2>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Publish the stewardship model on day one.</h3>
+                <p>I built it in parallel with the environment redesign, which worked. But a written model from the start would have shortened every permission conversation that followed. The document isn't the governance — the document is what lets everyone else participate in the governance without needing to ask.</p>
+              </div>
+
+              <div class="cs-reflection-item">
+                <h3 class="cs-reflection-title">Instrument adoption from week one.</h3>
+                <p>Failure-reduction numbers come for free from the platform. The harder and more telling number is how many builders are actually following the new model six months in. That's the metric I'd instrument earlier — not because the failure numbers don't matter, but because adoption is what the failure numbers are a lagging indicator of.</p>
+              </div>
+
+              <p class="cs-lesson">The broader lesson — and the one I carry into every reporting platform I touch — is that the work that earns executive trust isn't the dashboards executives see. It's the platform discipline they don't, which is why what they see is worth opening.</p>
+            </section>
+
+
+          </div><!-- /.cs-prose -->
+        </div><!-- /.container -->
+      </div><!-- /.cs-prose-wrap -->
+
+    </article>
+  </main>
+
+
+  <!-- ============================================================
+       Next case
+       ============================================================ -->
+  <nav class="cs-next" aria-label="Next case study">
+    <div class="container">
+      <div class="cs-next-inner">
+        <span class="cs-next-label">Next case study</span>
+        <a href="../c-suite-product-sales/" class="cs-next-link">
+          From Mainframe Extracts to C-Suite Product Sales Visibility in Eight Weeks
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <span class="footer-identity">Prateek Singh · Lansing, MI</span>
+      <ul class="footer-links">
+        <li><a href="mailto:prateek.singh22@outlook.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/prateeksingh22" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/prateeks-viz" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="../../cv/Prateek_Singh_Resume.pdf">CV</a></li>
+      </ul>
+      <span class="footer-year">© 2026</span>
+    </div>
+  </footer>
+
+  <script src="../../js/nav.js" defer></script>
+</body>
+</html>
