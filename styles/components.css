@@ -178,6 +178,29 @@
 /* ============================================================
    Hero
    ============================================================ */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  gap: var(--s-8);
+  align-items: center;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-kicker {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--s-4);
+  max-width: none;
+}
+
 .hero-title {
   max-width: 18ch;
 }
@@ -206,6 +229,76 @@
   color: var(--ink-faint);
   margin-top: var(--s-5);
   max-width: 56ch;
+}
+
+.hero-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  justify-self: end;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--paper-warm);
+  box-shadow: var(--shadow-2);
+}
+
+.hero-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 8px solid var(--paper);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portrait-fallback {
+  display: none;
+  position: absolute;
+  inset: 8px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-size: clamp(72px, 12vw, 104px);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--accent);
+  background:
+    linear-gradient(135deg, rgba(47, 93, 140, 0.08), rgba(42, 140, 130, 0.12)),
+    var(--paper-warm);
+}
+
+.hero-portrait.is-missing .portrait-fallback {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-6);
+  }
+
+  .hero-portrait {
+    justify-self: start;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-portrait {
+    max-width: 220px;
+  }
 }
 
 /* ============================================================
@@ -436,6 +529,7 @@
 .case-card--amber { border-top: 3px solid var(--viz-amber); }
 .case-card--plum  { border-top: 3px solid var(--viz-plum); }
 .case-card--green { border-top: 3px solid var(--viz-green); }
+.case-card--accent { border-top: 3px solid var(--accent); }
 
 /* Category badge dot color variants */
 .dot--blue  { background: var(--viz-blue); }
@@ -443,6 +537,7 @@
 .dot--amber { background: var(--viz-amber); }
 .dot--plum  { background: var(--viz-plum); }
 .dot--green { background: var(--viz-green); }
+.dot--accent { background: var(--accent); }
 
 /* Metric anchor number: subtle semantic tint on the large stat */
 .metric--green .anchor { color: var(--viz-green); }
@@ -515,6 +610,16 @@
   border-bottom: 1px solid var(--rule);
 }
 
+.about-preview + .section {
+  padding-top: var(--s-9);
+}
+
+@media (max-width: 720px) {
+  .about-preview + .section {
+    padding-top: var(--s-7);
+  }
+}
+
 .about-body {
   font-family: var(--sans);
   font-size: clamp(16px, 1.7vw, 18px);
@@ -573,6 +678,48 @@
   line-height: 1.65;
   color: var(--ink-muted);
   max-width: none;
+}
+
+/* ============================================================
+   Recommendations — compact social proof for About
+   ============================================================ */
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+  margin-top: var(--s-7);
+}
+
+.quote-card {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s-5);
+}
+
+.quote-copy {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: none;
+}
+
+.quote-source {
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-faint);
+  margin-top: var(--s-4);
+  max-width: none;
+}
+
+.quote-source strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .quote-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
@@ -759,6 +906,16 @@
 }
 
 .contact-body p + p { margin-top: var(--s-4); }
+
+.contact-body .best-fit {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-top: var(--s-5);
+  max-width: 68ch;
+}
 
 /* ============================================================
    Site footer
